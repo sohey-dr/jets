@@ -4,6 +4,7 @@ module Jets
 
     def call(env)
       stack = middlewares.build(endpoint)
+      # puts "Jets::Middleware.call stack #{stack}".color(:yellow)
       stack.call(env)
     end
 
@@ -18,6 +19,7 @@ module Jets
     end
 
     def middlewares
+      # puts "default_stack #{default_stack}".color(:green)
       config_middleware.merge_into(default_stack) # returns Jets::Middleware::Stack
     end
     memoize :middlewares
