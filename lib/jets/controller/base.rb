@@ -51,6 +51,11 @@ class Jets::Controller
         'lambda.meth' => meth,
       )
 
+      # override @meth if POST with _method=delete
+      puts "process! params: #{params}"
+      puts "process! params[:_meth]: #{params[:_meth]}"
+      # @meth = ...
+
       # adapter.process calls
       #
       #     Jets.application.call(env)
