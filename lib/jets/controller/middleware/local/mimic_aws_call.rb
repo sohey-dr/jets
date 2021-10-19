@@ -19,6 +19,8 @@ class Jets::Controller::Middleware::Local
     def controller
       controller_class = @route.controller_name.constantize
       meth = @route.action_name
+      # puts "controller_class #{controller_class}"
+      # puts "meth #{meth}"
       controller_class.new(event, context, meth)
     end
 

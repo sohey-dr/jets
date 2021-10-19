@@ -9,6 +9,9 @@ class Jets::Router
       # Immediately stop checking when the request method: GET, POST, ANY, etc
       # doesnt match.
 
+      # puts "route.method #{route.method}"
+      # puts "route.path #{route.path}"
+
       return false if method != route.method && route.method != "ANY"
 
       route_path = route.path

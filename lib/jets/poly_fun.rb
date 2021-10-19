@@ -25,6 +25,9 @@ module Jets
     end
 
     def run_ruby_code(event, context)
+      # puts "@app_class #{@app_class}"
+      # puts "@app_meth #{@app_meth}"
+      # puts "event #{event}"
       @app_class.process(event, context, @app_meth)
     rescue Exception => e
       Jets.on_exception(e)

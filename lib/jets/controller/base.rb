@@ -52,9 +52,13 @@ class Jets::Controller
       )
 
       # override @meth if POST with _method=delete
-      puts "process! params: #{params}"
-      puts "process! params[:_meth]: #{params[:_meth]}"
-      # @meth = ...
+      puts "process! params: #{params}".color(:yellow)
+      puts "process! params[:_meth]: #{params[:_meth]}".color(:yellow)
+      puts "process! @meth: #{@meth}".color(:yellow)
+
+      if @event['httpMethod'] == 'POST' && params[:_meth] == "delete"
+        @meth = "delete" # when dispatch is called in Jets::Controller::Middleware::Main it'll call delete instead
+      end
 
       # adapter.process calls
       #
