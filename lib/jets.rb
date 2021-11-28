@@ -28,4 +28,4 @@ module Jets
   extend Core # root, logger, etc
 end
 
-Jets::Autoloaders.once.preload("#{__dir__}/jets/db.rb") # required for booter.rb: setup_db
+Jets::Autoloaders.once.setup("#{__dir__}/jets/db.rb") # required for booter.rb: setup_db

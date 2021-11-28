@@ -66,7 +66,7 @@ module Jets
       def eager_load_shared_resources!
         Dir.glob("#{Jets.root}/app/shared/**").each do |path|
           next if path.include?("app/shared/functions")
-          Jets::Autoloaders.main.preload(path)
+          Jets::Autoloaders.main.setup(path)
         end
       end
 
